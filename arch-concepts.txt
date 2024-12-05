@@ -1,0 +1,18 @@
+1950s: The early days of computing, where coding was mostly low-level and done in assembly languages. The concept of "architecture" didn't exist yet.
+
+1960s: The rise of structured programming and the birth of object-oriented programming (OOP), marking the first steps towards modularity and component-based design. A small step for programming, but a giant leap for architecture! 🚀
+
+Late 1960s: Enter monolithic architectures—systems where everything was built as one large unit. People started theorising about how to structure software, laying the groundwork for more sophisticated architectures.
+
+1970s: Big innovations like microkernel architecture came along. This modular design had a core system (the microkernel) surrounded by components. Plus, event-driven programming made it possible for systems to respond to events, creating a more dynamic interaction between modules.
+
+1978: The rise of Client-Server architecture. Initially, servers handled everything, but soon the Model-View-Controller (MVC) pattern was introduced to divide responsibilities more efficiently.
+
+1980s & 1990s: More refined architectures came into play like Command-Query Separation (CQS). This was also the era when the web browser was born! 🌐 With the rise of the internet, architectures like Service-Oriented Architecture (SOA) and Domain-Driven Design (DDD) emerged.
+
+2000s: The modern age of Microservices, Onion Architecture, CQRS (Command Query Responsibility Segregation), and Clean Architecture. These patterns are designed for scalability, maintainability, and modularity.
+
+
+Software Architecture is the high-level structure of a system. It deals with how the system is divided into components, how data flows between those components, and which architectural pattern (e.g. monolithic, microservices) is best suited to solve the problem.
+
+Software Design is the low-level implementation. It focuses on fleshing out the architecture with specific libraries, technologies, and coding techniques.
