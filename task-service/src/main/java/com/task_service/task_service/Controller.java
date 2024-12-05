@@ -15,7 +15,7 @@ public class Controller {
 
     @PostMapping
     public void addTask(@RequestBody Task task) {
-        service.addTask(task.getId(), task.getTitle(), task.getDescription());
+        service.addTask(task.getId(), task.getTitle(), task.getDescription(), task.getUserId());
     }
 
     @GetMapping
@@ -30,7 +30,7 @@ public class Controller {
 
     @PutMapping("/{id}")
     public void updateTask(@PathVariable int id, @RequestBody Task task) {
-        service.updateTask(id, task.getTitle(), task.getDescription(), task.isStatus());
+        service.updateTask(id, task.getTitle(), task.getDescription(), task.isStatus(), task.getUserId());
     }
 
     @PatchMapping("/{id}/toggle-status")

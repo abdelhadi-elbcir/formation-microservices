@@ -6,12 +6,14 @@ public class Task {
     private int id;
     private String title;
     private String description;
+    private int userId;
     private boolean status = false;
 
-    public Task(int id, String title, String description) {
+    public Task(int id, String title, String description, int userId) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.userId = userId;
     }
 
 
@@ -37,6 +39,15 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public boolean isStatus() {

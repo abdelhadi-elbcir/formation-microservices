@@ -11,12 +11,8 @@ public class TaskService {
     @Autowired
     private Repository repository;
 
-    public TaskService(Repository repository) {
-        this.repository = repository;
-    }
-
-    public void addTask(int id, String title, String description) {
-        Task newTask = new Task(id, title, description);
+    public void addTask(int id, String title, String description, int userId) {
+        Task newTask = new Task(id, title, description, userId);
         repository.addTask(newTask);
     }
 
@@ -32,10 +28,10 @@ public class TaskService {
         return task;
     }
 
-    public void updateTask(int id, String title, String description, boolean status) {
-        Task updatedTask = new Task(id, title, description);
+    public void updateTask(int id, String title, String description, boolean status,int userId) {
+        Task updatedTask = new Task(id, title, description, userId);
         updatedTask.setStatus(status);
-        boolean success = repository.updateTask((int) id, updatedTask);
+        boolean success = repository.updateTask(id, updatedTask);
         if (!success) {
             throw new IllegalArgumentException("Task with ID " + id + " not found for update.");
         }

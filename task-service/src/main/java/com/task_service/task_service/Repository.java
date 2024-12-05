@@ -19,12 +19,10 @@ public class Repository {
         db.add(task);
     }
 
-    // Read: Get all tasks
     public List<Task> getAllTasks() {
         return new ArrayList<>(db);
     }
 
-    // Read: Get a task by ID
     public Task getTaskById(long id) {
         for (Task task : db) {
             if (task.getId() == id) {
