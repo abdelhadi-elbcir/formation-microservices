@@ -24,6 +24,10 @@ public class UserService {
         return repository.getUserById(id);
     }
 
+    public boolean checkUserId(int id) {
+        return repository.checkUserId(id);
+    }
+
     public boolean updateUser(int id, User updatedUser) {
         return repository.updateUser(id, updatedUser);
     }

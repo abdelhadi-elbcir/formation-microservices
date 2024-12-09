@@ -13,8 +13,12 @@ public class Controller {
     @Autowired
     private TaskService service;
 
+    @Autowired
+    private TaskEventPublisher taskEventPublisher;
+
     @PostMapping
     public void addTask(@RequestBody Task task) {
+        taskEventPublisher.publishTaskCreatedEvent(task);
         service.addTask(task.getId(), task.getTitle(), task.getDescription(), task.getUserId());
     }
 

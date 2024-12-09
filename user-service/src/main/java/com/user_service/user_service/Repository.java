@@ -26,6 +26,12 @@ public class Repository {
                  .findFirst();
     }
 
+    public boolean checkUserId(int id) {
+        return db.stream()
+                 .filter(user -> user.getId() == id)
+                 .findFirst().isPresent();
+    }
+
     public boolean updateUser(int id, User updatedUser) {
         for (int i = 0; i < db.size(); i++) {
             if (db.get(i).getId() == id) {

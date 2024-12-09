@@ -3,7 +3,10 @@ package com.task_service.task_service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 @Service
@@ -15,21 +18,20 @@ public class TaskService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String USER_SERVICE_URL = "http://localhost:8080/api/v1/users"; // Update the URL to the actual UserService endpoint
-
+    private static final String USER_SERVICE_URL = "http://localhost:8080/user-service/api/v1/users/id"; 
+    
     private boolean doesUserExist(int userId) {
         try {
-            restTemplate.getForObject(USER_SERVICE_URL + "/" + userId, String.class);
-            return true;
-        } catch (Exception e) {
+            return Boolean.TRUE.equals(restTemplate.getForObject(USER_SERVICE_URL + "/" + userId, Boolean.class));
+        } catch (RestClientException | IllegalArgumentException e) {
             return false;
         }
     }
 
     public void addTask(int id, String title, String description, int userId) {
-        if (!doesUserExist(userId)) {
-            throw new IllegalArgumentException("User with ID " + userId + " does not exist.");
-        }
+        // if (!doesUserExist(userId)) {
+        //     throw new IllegalArgumentException("User with ID " + userId + " does not exist.");
+        // }
         Task newTask = new Task(id, title, description, userId);
         repository.addTask(newTask);
     }

@@ -30,6 +30,11 @@ public class Controller {
         return service.getUserById(id);
     }
 
+    @GetMapping("/id/{id}")
+    public boolean checkUserId(@PathVariable int id) {
+        return service.checkUserId(id);
+    }
+
     @PutMapping("/{id}")
     public String updateUser(@PathVariable int id, @RequestBody User updatedUser) {
         boolean isUpdated = service.updateUser(id, updatedUser);
